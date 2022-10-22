@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <node name ="fibonacci_server" pkg="intro_tutorial" type="fibonacci_server" />
+    <node name ="fibonacci_client" pkg="intro_tutorial" type="fibonacci_client" />
+</launch>
