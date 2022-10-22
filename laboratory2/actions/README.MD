@@ -52,3 +52,8 @@ In addition to that, also, must be added :
     ```
     add_dependencies(<name_file> ${<name_package>_EXPORTED_TARGETS})
     ```
+
+Finally, some integersting commands to check if everything works are :
+- `rostopic list -v` or `rqt_graph` : to check the correctness of the published data.
+- `rostopic echo /fibonacci/feedback` : to see the feedback messages in real time.
+- `rostopic echo /fibonacci/result` : to see the result message.
