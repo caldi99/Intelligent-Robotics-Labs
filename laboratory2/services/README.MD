@@ -18,7 +18,7 @@ ROS services can be created as follows :
         ```
     - in the section **Generate messages in the 'msg' folder** this piece of code must be placed :
         ```
-        rossrv show intro_tutorial/srv1
+        add_service_files(FILES <name_service>.srv)
         ```
 - To check that all is OK, the following command must be exectuted : `rossrv show <package_name>/<srv_name>` in this case, `rossrv show <package_name>/srv1`. 
 If everything was done correctly, the following output will be displayed :
