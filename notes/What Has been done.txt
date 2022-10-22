@@ -1,0 +1,86 @@
+First thing first in order to use ROS after installing it etc, we must run the command source /opt/ros/melodic/setup.bash in every window we open. Notice that if we do not want to do so, we can do the following steps :
+- open the file sudo gedit ~/.bashrc
+- write the previous command (source /opt/ros/melodic/setup.bash) at the end of the file and save it
+
+Notice that if there are some problems, like command regarding ros that are not found, then in such a case try as first thing to do, to run source /opt/ros/melodic/setup.bash in every kind of terminal you open.
+
+
+Now, let's start with the first part :
+- to have a better access of the wsl create a link in the desktop to have access to its files. To do such a thing open "explore file" of windows and type "\\wsl$" on its bar, then open "Ubuntu 18.04/home/username" and finally,
+right click on it and create a link to the desktop
+
+- to program seriously with ros, download vscode and install the following extension on it :
+	- "Remove Development" (after installing it restart vscode)
+	-
+
+- After installing such an extension on vscode, click on the left down corener of vscode (icon <>) and create a new wsl window in order to have access of the Wsl from vscode directly (notice that we have only one wsl version so just create a new one)
+- Now we can start with the tutorial directly from the wls inside vscode
+
+
+Tutorial 1:
+- create a folder for the workspace : mkdir catkin_ws/src
+- go inside that folder : cd catkin_ws/src
+- initialize the workspace : catkin_init_workspace
+- build the workspace : 
+	cd ~/catkin_ws/   
+	catkin build
+Remember that, this step of building the project must be always done from the ~/catkin_ws/
+- Include into bashrc this : echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+- Execute the command source ~/catkin_ws/devel/setup.bash
+- Notice that the above setup is only once, then what we are going to do next are creating different types of packages
+
+
+Tutorial 2:
+- creation of a new package : 
+	cd ~/catkin_ws/src
+	catkin_create_pkg intro_tutorial std_msgs roscpp //notice that intro_tutorial = name of the package roscpp = c++ program
+- build the package :
+	cd ~/catkin_ws/   
+	catkin build
+
+OGNI VOLTA CHE FAI BUILD RIFARE : source ~/catkin_ws/devel/setup.bash
+OCCHIO SBAGLIATO 24 roscd intro_tutorial
+
+//NO ADD DEPENDANCIES
+
+include_directories(
+include
+${catkin_INCLUDE_DIRS}
+)
+add_executable(example1_a src/example1_a.cpp)
+add_executable(example1_b src/example1_b.cpp)
+
+target_link_libraries(example1_a ${catkin_LIBRARIES})
+target_link_libraries(example1_b ${catkin_LIBRARIES})
+
+
+ORDINE 
+1 find package
+2 add and generate
+3 catkin
+
+//shift alt f auto ident
+
+
+//VANNO IN TRIPLA
+
+.xml
+<build_depend>message_generation</build_depend>
+<exec_depend>message_runtime</exec_depend>
+
+//cmakelist
+
+#generate_messages(
+#DEPENDENCIES
+#std_msgs
+#)
+
+#catkin_package(
+#CATKIN_DEPENDS message_runtime
+#)
+
+
+ORDINE FINALE :
+find_package
+add_files
+catkin_package
