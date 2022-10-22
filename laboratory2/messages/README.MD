@@ -19,7 +19,7 @@ ROS messages can be created as follows :
         ```
         find_package(catkin REQUIRED COMPONENTS roscpp std_msgs message_generation)
         ```
-    - in the section **catkin specific configuration** this piece of code must be placed : 
+    - in the section **Catkin specific configuration** this piece of code must be placed : 
         ```
         catkin_package(CATKIN_DEPENDS message_runtime)
         ```
