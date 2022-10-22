@@ -16,7 +16,15 @@ ROS services can be created as follows :
         ```
         find_package(catkin REQUIRED COMPONENTS roscpp std_msgs message_generation)
         ```
-    - in the section **Generate messages in the 'msg' folder** this piece of code must be placed :
+    - in the section **Generate added messages and services with any dependencies listested here** this piece of code must be placed : 
+        ```
+        generate_messages(DEPENDENCIES std_msgs)
+        ```
+    - in the section **Specify additional locations of header files** this piece of code must be placed : 
+        ```
+        include directories(include ${catkin_INCLUDE_DIRS})
+        ```
+    - in the section **Generate services in the 'srv' folder** this piece of code must be placed :
         ```
         add_service_files(FILES <name_service>.srv)
         ```
