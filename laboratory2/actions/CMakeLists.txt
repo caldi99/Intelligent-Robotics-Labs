@@ -7,11 +7,7 @@ project(intro_tutorial)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  message_generation
-)
+find_package(catkin REQUIRED COMPONENTS actionlib)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -47,36 +43,33 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
+# add_message_files()
 #   FILES
 #   Message1.msg
 #   Message2.msg
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
+# add_service_files()
 #   FILES
-#   Service1.srv
-#   Service2.srv
+#   Service1.msg
+#   Service2.msg
 # )
-
-add_service_files(FILES srv1.srv)
-
 
 ## Generate actions in the 'action' folder
-# add_action_files(
+# add_action_files()
 #   FILES
-#   Action1.action
-#   Action2.action
+#   Action1.msg
+#   Action1.msg
 # )
+add_action_files(DIRECTORY action FILES Fibonacci.action)
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
-
-generate_messages(DEPENDENCIES std_msgs)
+#generate_messages(
+#DEPENDENCIES
+#std_msgs
+#)
+generate_messages(DEPENDENCIES actionlib_msgs)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -97,7 +90,6 @@ generate_messages(DEPENDENCIES std_msgs)
 #   cfg/DynReconf1.cfg
 #   cfg/DynReconf2.cfg
 # )
-
 ###################################
 ## catkin specific configuration ##
 ###################################
@@ -107,12 +99,7 @@ generate_messages(DEPENDENCIES std_msgs)
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES intro_tutorial
-#  CATKIN_DEPENDS roscpp std_msgs
-#  DEPENDS system_lib
-)
+catkin_package(CATKIN_DEPENDS actionlib)
 
 ###########
 ## Build ##
@@ -121,7 +108,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+# include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -139,8 +126,8 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/intro_tutorial_node.cpp)
-add_executable(example3_a src/example3_a.cpp)
-add_executable(example3_b src/example3_b.cpp)
+add_executable(fibonacci_server src/fibonacci_server.cpp)
+add_executable(fibonacci_client src/fibonacci_client.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,14 +138,15 @@ add_executable(example3_b src/example3_b.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(fibonacci_server ${intro_tutorial_EXPORTED_TARGETS})
+add_dependencies(fibonacci_client ${intro_tutorial_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-
-target_link_libraries(example3_a ${catkin_LIBRARIES})
-target_link_libraries(example3_b ${catkin_LIBRARIES})
+target_link_libraries(fibonacci_server ${catkin_LIBRARIES})
+target_link_libraries(fibonacci_client ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -173,7 +161,6 @@ target_link_libraries(example3_b ${catkin_LIBRARIES})
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
-
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node

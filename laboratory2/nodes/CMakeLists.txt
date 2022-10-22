@@ -114,9 +114,8 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-
 include_directories(
-  include  
+# include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -153,8 +152,8 @@ add_executable(example1_b src/example1_b.cpp)
 #   ${catkin_LIBRARIES}
 # )
 
-target_link_libraries(example1_a $(catkin_LIBRARIES))
-target_link_libraries(example1_b $(catkin_LIBRARIES))
+target_link_libraries(example1_a ${catkin_LIBRARIES})
+target_link_libraries(example1_b ${catkin_LIBRARIES})
 
 #############
 ## Install ##
