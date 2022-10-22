@@ -20,7 +20,7 @@ After that, `<path_package_name>/CMakeLists.txt` file must be modified in order 
 	- (Optional) If the **ROS extension** of Visual Studio Code is installed, the previous step can be substituted with :
 	    - Press `CTRL` + `SHIFT` + `P`.
 	    - Select `ROS: Start`.
-	- Open a different shells for each node created and run :
+	- Open different shells for each node created and run :
 	    ```
         rosrun <package_name> <name_file>
         ```
