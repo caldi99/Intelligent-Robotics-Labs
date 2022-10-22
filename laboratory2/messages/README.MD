@@ -25,7 +25,7 @@ ROS messages can be created as follows :
         ```
     - in the section **Generate messages in the 'msg' folder** this piece of code must be placed : 
         ```
-        add_message_files(FILES msg1.msg)
+        add_message_files(FILES <msg_name>.msg)
         ```
     - in the section **Generate added messages and services with any dependencies listed here** this piece of code must be placed :
         ```
