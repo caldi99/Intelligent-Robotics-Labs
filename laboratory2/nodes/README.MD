@@ -3,10 +3,6 @@
 ## ROS Nodes
 ROS Nodes can be created by putting `.cpp` or `.py` code files inside `<path_package_name>/src`, in this case, inside `~/catkin_ws/src/intro_tutorial/src`.
 After that, `<path_package_name>/CMakeLists.txt` file must be modified in order to compile correctly the code, in this case the file `~/catkin_ws/src/intro_tutorial/CMakeLists.txt`. The modifications to be done are the followings :
-- in the section **Specify additional locations of header files** this piece of code must be placed : 
-    ```
-    include_directories(include ${catkin_INCLUDE_DIRS})
-    ```
 - in the section **Declare C++ executable** this piece of code must be placed :
     ```
     add_executable(<name_file> src/<name_file>.cpp)
