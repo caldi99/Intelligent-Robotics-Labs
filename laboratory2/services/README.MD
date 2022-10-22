@@ -20,6 +20,10 @@ ROS services can be created as follows :
         ```
         add_service_files(FILES <name_service>.srv)
         ```
+- Execute : `catkin_make` or `catkin build` (from `~/catkin_ws`).
+- (Optional) If the **ROS extension** of Visual Studio Code is installed, the previous step can be substituted with :
+    - Press `CTRL` + `SHIFT` + `B`.
+    - Run `catkin_make: build`.
 - To check that all is OK, the following command must be exectuted : `rossrv show <package_name>/<srv_name>` in this case, `rossrv show <package_name>/srv1`. 
 If everything was done correctly, the following output will be displayed :
     ```
