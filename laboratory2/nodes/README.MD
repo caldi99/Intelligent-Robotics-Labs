@@ -13,7 +13,7 @@ After that, `<path_package_name>/CMakeLists.txt` file must be modified in order 
     ```
 - in the section **Specify libraries to link a library or executable target against** this piece of code must be placed :
     ```
-    target_link_libraries(example1_a ${catkin_LIBRARIES})
+    target_link_libraries(<name_file> ${catkin_LIBRARIES})
     ```
 - Execute : `catkin_make` or `catkin build` (from `~/catkin_ws`).
 - (Optional) If the **ROS extension** of Visual Studio Code is installed, the previous step can be substituted with :
