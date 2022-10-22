@@ -7,7 +7,7 @@ After that, `<path_package_name>/CMakeLists.txt` file must be modified in order 
     ```
     include_directories(include ${catkin_INCLUDE_DIRS})
     ```
-- in the section **Declere C++ executable** this piece of code must be placed :
+- in the section **Declare C++ executable** this piece of code must be placed :
     ```
     add_executable(<name_file> src/<name_file>.cpp)
     ```
