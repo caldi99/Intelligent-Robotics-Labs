@@ -26,7 +26,7 @@ After that, `<path_package_name>/CMakeLists.txt` file must be modified in order 
 	    - Select `ROS: Start`.
 	- Open a different shells for each node created and run :
 	    ```
-        rosrun intro_tutorial <name_file>
+        rosrun <package_name> <name_file>
         ```
 Other interesting commands regarding nodes are :	
 - `rosnode info <node_name>` : printing information about a node.
