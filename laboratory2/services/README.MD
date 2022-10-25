@@ -22,7 +22,7 @@ ROS services can be created as follows :
         ```
     - in the section **Specify additional locations of header files** this piece of code must be placed : 
         ```
-        include directories(include ${catkin_INCLUDE_DIRS})
+        include_directories(include ${catkin_INCLUDE_DIRS})
         ```
     - in the section **Generate services in the 'srv' folder** this piece of code must be placed :
         ```
