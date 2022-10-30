@@ -9,7 +9,7 @@ A `.launch` file is a file that can be used to launch more than one one. To crea
     ```
     <?xml version="1.0"?>
     <launch>
-        <node name ="<node_name>" pkg="<package_name>" type="<name_node_file>" />
+        <node name ="<node_name_symbolic>" pkg="<package_name>" type="<name_node_file_cmakelists>" />
     </launch>
     ```
 - Launch the file : `roslaunch <package_name> <name_launch_file>.launch`
