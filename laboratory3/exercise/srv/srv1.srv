@@ -1,0 +1,5 @@
+Header stdMsgHeader
+int32 chargingStationID
+---
+Header stdMsgHeader
+msg1 messageContent
