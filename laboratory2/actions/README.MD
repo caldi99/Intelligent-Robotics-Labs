@@ -18,6 +18,8 @@ ROS action messages can be created as follows :
     ```
     <build_depend>actionlib</build_depend>
     <exec_depend>actionlib</exec_depend>
+    <build_depend>actionlib_msgs</build_depend>
+    <exec_depend>actionlib_msgs</exec_depend>
     ```
 - Modify the file `<path_package_name>/CMakeLists.txt` as follow :
     - in the section **Find catkin macros and libraries** this piece of code must be placed : 
