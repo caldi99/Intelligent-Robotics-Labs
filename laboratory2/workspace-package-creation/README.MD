@@ -25,7 +25,7 @@ Other commands worth to mention are :
 
 In order to create a package in ROS the following steps must be followed :
 - Move inside `~/catkin_ws/src` (where the workspace was created) : `cd ~/catkin_ws/src`
-- Execute the following command : `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]` where `<package_name>` is the name of the package that must be created and `[depend1] [depend2] [depend2]` are optional dependancies like `std_msg`, `rospy`, `roscpp`. 
+- Execute the following command : `catkin_create_pkg <package_name> [depend1] [depend2] [depend3]` where `<package_name>` is the name of the package that must be created and `[depend1] [depend2] [depend2]` are optional dependancies like `std_msgs`, `rospy`, `roscpp`. 
 As an example the command used to create a package in this tutorial is : `catkin_create_pkg intro_tutorial std_msgs roscpp`
 - Build the package created with either :
     - `cd ~/catkin_ws`.
