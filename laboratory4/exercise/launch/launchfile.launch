@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node name ="station" pkg="exercise3" type="Station" />
+    
+    
+    <node name ="robot" pkg="exercise3" type="Robot" />
+</launch>

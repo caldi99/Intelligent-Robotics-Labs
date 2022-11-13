@@ -1,0 +1,11 @@
+#goal definition
+Header stdMessageHeader
+float32 goalBatteryLevel
+---
+#result definition
+Header stdMessageHeader
+bool completedCharge
+---
+#feedback
+Header stdMessageHeader
+float32 currentBatteryLevel
