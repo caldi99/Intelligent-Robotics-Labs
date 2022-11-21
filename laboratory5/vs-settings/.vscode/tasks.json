@@ -1,0 +1,66 @@
+{    
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "catkin build",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh build ${workspaceFolderBasename}"
+        },
+        {
+            "label": "catkin clear",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh clear"
+        },
+        {
+            "label": "catkin_init_workspace",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh catkin_init_workspace && ${workspaceFolder}/.vscode/script.sh build ${workspaceFolderBasename}"
+        },
+        {
+            "label": "catkin_create_pkg",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh create_package ${workspaceFolderBasename} ${input:package_name}"            
+        },
+        {
+            "label": "rostopic info",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh rostopic_info ${workspaceFolderBasename} ${input:topic_name}"            
+        },
+        {
+            "label": "rostopic list",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh rostopic_list ${workspaceFolderBasename}"            
+        },
+        {
+            "label": "rosmsg info",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh rosmsg_info ${workspaceFolderBasename} ${input:msg_name}"            
+        },
+        {
+            "label": "rosmsg list",
+            "type": "shell",
+            "command": "${workspaceFolder}/.vscode/script.sh rosmsg_list ${workspaceFolderBasename}"            
+        }
+    ],
+    "inputs": [
+        {
+            "id": "package_name",
+            "description": "Package Name:",
+            "default": "package",
+            "type": "promptString"
+        },
+        {
+            "id": "msg_name",
+            "description": "Message Name:",
+            "default": "message_name",
+            "type": "promptString"
+        },
+        {
+            "id": "topic_name",
+            "description": "Topic Name:",
+            "default": "topic_name",
+            "type": "promptString"
+        }
+    ]
+
+}
